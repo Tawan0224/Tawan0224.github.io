@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sample Quotation</title>
+    <meta name="description" content="Company quotation">
+    <meta name="author" content="SitePoint">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+            border-collapse: collapse;
+        }
+        
+        .center th, .center td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .center th {
+            background-color: #f2f0ef;
+            font-weight: bold;
+        }
+        
+        .data {
+            padding: 8px;
+        }
+        
+        .data2 {
+            padding: 8px;
+            font-weight: bold;
+        }
+        
+        .r {
+            text-align: right;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-right {
+            text-align: right;
+        }
+        
+        .colo {
+            background-color: #f2f0ef;
+        }
+        
+        .cen {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .tab {
+            margin-left: 50px;
+        }
+        
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 2px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+
+<body style="background-color: #ECFCF0">
+    
+    <!-- Centered QUOTATION -->
+    <div style="text-align: center; font-size: 60px; font-weight: bold; margin-bottom: 30px; margin-top: 30px;">
+        "QUOTATION"
+    </div>
+
+    <!-- Company Name and Logo -->
+    <div style="width: 100%; overflow: hidden;">
+        <div style="float: left; padding-left: 120px; font-size: 18px; font-weight:bold;">
+            COMPANY NAME co.ltd<br>
+            Bang Bo, Bang Bo<br>
+            Samut Prakan<br>
+            Thailand<br>
+            10560<br>
+            Phone: 02-23573574<br>
+            Mobile: 08-34751378<br>
+        </div>
+        
+        <div style="float: right; padding-right: 120px;">
+            <img src="img/2.png" style="width: 200px; height: 200px; border-radius: 50%">
+        </div>
+    </div>
+
+    <!-- Clear float -->
+    <div style="clear: both;"></div>
+
+    <!-- Contact Info and Date -->
+    <p style="margin-top: 20px; padding-left: 20px;">
+        <span style="float: right; padding-right: 180px; font-weight:bold;" id="quotationDate">
+            2010/7/27
+        </span>
+    </p>
+
+    <!-- Final clear -->
+    <div style="clear: both;"></div>
+
+    <p style="text-align: left; padding-left: 120px">
+        To:
+        <span class="tab">Soe Min Min Latt</span><br>
+        Ship to:
+        <span class="tab">Yangon, Myanmar</span> <br>
+    </p>
+    <br>
+    
+    <button type="button" class="btn btn-outline-dark" data-toggle="modal" data-target="#exampleModal" 
+        style="position: relative; left: 170px; top: -10px; padding-left: 130px; padding-right:130px">
+        Add item
+    </button>
+    
+    <table class="center" id="quotationTable">
+        <thead>
+            <tr>
+                <th>Quantity</th>
+                <th>Description</th>
+                <th>Unit Price</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody id="dataTable">
+            <!-- Dynamic rows will be inserted here -->
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="data"><br></td>
+                <td class="data"></td>
+                <td class="data"></td>
+                <td class="data"></td>
+            </tr>
+            <tr>
+                <td class="data"><br></td>
+                <td class="data"></td>
+                <td class="data"></td>
+                <td class="data"></td>
+            </tr>
+            <tr>
+                <td class="data"><br></td>
+                <td class="data"></td>
+                <td class="data"></td>
+                <td class="data"></td>
+            </tr>
+            <tr id="bottom-line">
+                <td class="data"><br></td>
+                <td class="data"></td>
+                <td class="data"></td>
+                <td class="data"></td>
+            </tr>
+
+            <tr id="sub-total">
+                <td colspan="3" class="data2 r colo"> Subtotal</td>
+                <td colspan="1" class="data2 r" id="bottom-line">
+                    <span id="subTotal">0.00</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="data2 r colo"> Sales Tax (7%)</td>
+                <td colspan="1" class="data2 r" id="bottom-line">
+                    <span id="vat">0.00</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="data2 r colo"> Shipping &amp; Handling</td>
+                <td colspan="1" class="data2 r" id="bottom-line">0.00</td>
+            </tr>
+            <tr>
+                <td colspan="3" class="data2 r colo"> Total Due</td>
+                <td colspan="1" class="data2 r" id="bottom-line">
+                    <span id="total">0.00</span>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br>
+
+    <p class="cen">
+        <b>Make all checks payable to:</b>
+        <br><i>COMPANY NAME co.ltd</i>
+        <br><b>If you have any question concerning this invoice, call:</b>
+        <br>
+        <br><b>THANK YOU FOR YOUR BUSINESS</b>
+    </p>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Add Item</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <tr>
+                            <td>Description</td>
+                            <td><input type="text" id="newItemDescription" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Price Per Unit</td>
+                            <td><input type="number" min="0" step="0.01" id="newItemPPU" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td>Quantity</td>
+                            <td><input type="number" min="0" step="0.01" id="newItemQty" class="form-control"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" onclick="addItem()">Save New Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var quotationData = []
+
+        function addItem() {
+            var d = $("#newItemDescription").val()
+            var u = $("#newItemPPU").val()
+            var q = $("#newItemQty").val()
+            
+            // Validation
+            if (!d || !u || !q) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            if (parseFloat(u) <= 0 || parseFloat(q) <= 0) {
+                alert('Price and quantity must be greater than 0');
+                return;
+            }
+            
+            console.debug(d, u, q)
+            quotationData.push({
+                description: d,
+                quantity: Number.parseFloat(q),
+                unitPrice: Number.parseFloat(u)
+            })
+            
+            // Clear the form
+            $("#newItemDescription").val('')
+            $("#newItemPPU").val('')
+            $("#newItemQty").val('')
+            
+            $('#exampleModal').modal('hide')
+            renderTable()
+        }
+
+        function renderTable() {
+            var data = quotationData
+            var subTotal = 0
+            
+            data.forEach((e) => {
+                subTotal = subTotal + (e.unitPrice * e.quantity)
+            })
+            
+            var vat = (subTotal * 0.07)
+            var total = subTotal + vat
+
+            console.log('subTotal', subTotal)
+            $("#subTotal").html(subTotal.toFixed(2))
+            $("#vat").html(vat.toFixed(2))
+            $("#total").html(total.toFixed(2))
+
+            var dataRows = data.map((e, i) => {
+                let amount = e.quantity * e.unitPrice
+                return `<tr class="data-row">
+                    <td class="text-center">${e.quantity}</td>
+                    <td class="data">
+                        <button class="delete-btn" onclick="deleteItem(${i})">×</button>
+                        ${e.description}
+                    </td>
+                    <td class="text-right">${e.unitPrice.toFixed(2)}</td>
+                    <td class="text-right">${amount.toFixed(2)}</td>
+                </tr>`;
+            })
+
+            // Remove existing data rows
+            $(".data-row").remove()
+
+            // Insert new rows into the tbody
+            dataRows.forEach((r) => {
+                $('#dataTable').append(r)
+            })
+        }
+
+        function deleteItem(i) {
+            quotationData.splice(i, 1)
+            renderTable()
+        }
+
+        $(document).ready(function () {
+            // Set current date
+            var d = new Date()
+            $('#quotationDate').html(d.toDateString())
+            
+            // Initialize with empty table
+            renderTable()
+        })
+    </script>
+</body>
+
+</html>
